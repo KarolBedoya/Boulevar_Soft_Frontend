@@ -26,7 +26,7 @@ const LandingPage = () => {
                 <div className="py-4 px-4 mx-0 md:mx-6 lg:mx-8 lg:px-8 flex align-items-center justify-content-between relative lg:static">
                     <Link href="/" className="flex align-items-center">
                         <img src={`/layout/images/${layoutConfig.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}.svg`} alt="Sakai Logo" height="50" className="mr-0 lg:mr-2" />
-                        <span className="text-900 font-medium text-2xl line-height-3 mr-8">SAKAI</span>
+                        <span className="text-900 font-medium text-2xl line-height-3 mr-8">Boulevar Soft</span>
                     </Link>
                     <StyleClass nodeRef={menuRef as NodeRef} selector="@next" enterClassName="hidden" leaveToClassName="hidden" hideOnOutsideClick>
                         <i ref={menuRef} className="pi pi-bars text-4xl cursor-pointer block lg:hidden text-700"></i>
@@ -35,7 +35,7 @@ const LandingPage = () => {
                         <ul className="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer">
                             <li>
                                 <a href="#home" onClick={toggleMenuItemClick} className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
-                                    <span>Home</span>
+                                    <span>Inicio</span>
                                     <Ripple />
                                 </a>
                             </li>
@@ -75,13 +75,11 @@ const LandingPage = () => {
                 >
                     <div className="mx-4 md:mx-8 mt-0 md:mt-4">
                         <h1 className="text-6xl font-bold text-gray-900 line-height-2">
-                            <span className="font-light block">Eu sem integer</span>eget magna fermentum
+                            <span className="font-light block">Boulevar</span>de las frutas
                         </h1>
-                        <p className="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">Sed blandit libero volutpat sed cras. Fames ac turpis egestas integer. Placerat in egestas erat... </p>
-                        <Button type="button" label="Get Started" rounded className="text-xl border-none mt-3 bg-blue-500 font-normal line-height-3 px-3 text-white"></Button>
-                    </div>
+                        </div>
                     <div className="flex justify-content-center md:justify-content-end">
-                        <img src="/demo/images/landing/screen-1.png" alt="Hero Image" className="w-9 md:w-auto" />
+                        <img src="/demo/images/landing/imagen_bienvenida_cafe.jpg" alt="Hero Image" className="w-9 md:w-auto" />
                     </div>
                 </div>
 
@@ -334,11 +332,40 @@ const LandingPage = () => {
                             }}
                         >
                             <div className="flex flex-column justify-content-center align-items-center text-center px-3 py-3 md:py-0">
-                                <h3 className="text-gray-900 mb-2">Joséphine Miller</h3>
+                                <h3 className="text-gray-900 mb-2">Sobre Nosotros</h3>
                                 <span className="text-gray-600 text-2xl">Peak Interactive</span>
                                 <p className="text-gray-900 sm:line-height-2 md:line-height-4 text-2xl mt-4" style={{ maxWidth: '800px' }}>
-                                    “Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                    laborum.”
+                                    El Boulevar de las frutas es un restaurante familiar que tiene 17 años funcionando,
+                                    creado por Jaime Anacona y su esposa Yaneth Chavarro, quienes llegaron de Colombia
+                                    a Ecuador en busca de una mejor estabilidad económica para ellos y sus 3 hijos,
+                                    su propuesta fue un sitio de antojitos colombianos en un pequeño pueblo llamado El Coca,
+                                    lugar que tuvo gran acogida por su sabor tradicional e innovación ya que no había nada como esto,
+                                    el negocio creció al igual que sus hijos quienes son los encargados
+                                    hoy en día de seguir con el legado de sus padres,
+                                    incluyendo nuevas ideas pero manteniendo la esencia de este agradable lugar.
+                                </p>
+                                <img src="/demo/images/landing/peak-logo.svg" className="mt-4" alt="Company logo" />
+                            </div>
+
+
+                        </div>
+
+                        <div
+                            className="col-12 mt-8 mb-8 p-2 md:p-8"
+                            style={{
+                                borderRadius: '20px',
+                                background: 'linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, #EFE1AF 0%, #C3DCFA 100%)'
+                            }}
+                        >
+                        <div className="flex flex-column justify-content-center align-items-center text-center px-3 py-3 md:py-0">
+                                <h3 className="text-gray-900 mb-2">Productos y Servicios</h3>
+                                <span className="text-gray-600 text-2xl">Boulevar de las frutas</span>
+                                <p className="text-gray-900 sm:line-height-2 md:line-height-4 text-2xl mt-4" style={{ maxWidth: '800px' }}>
+                                    Tenemos un amplio menú que varia para todos los gustos, nuestros productos van desde comidas rápidas,
+                                    empanadas colombianas, pan de yuca, batidos, ensaladas de frutas, una gama de cafés fríos y calientes,
+                                    desayunos, pizzas, pasteles, comida saludable y platos a la carta.
+                                    Ofrecemos servicios presenciales en nuestro único local, no tenemos proyectado expandirnos,
+                                    mas bien queremos mantener la calidad y servicio, actualmente tenemos 11 empleados.
                                 </p>
                                 <img src="/demo/images/landing/peak-logo.svg" className="mt-4" alt="Company logo" />
                             </div>
@@ -348,8 +375,8 @@ const LandingPage = () => {
 
                 <div id="highlights" className="py-4 px-4 lg:px-8 mx-0 my-6 lg:mx-8">
                     <div className="text-center">
-                        <h2 className="text-900 font-normal mb-2">Powerful Everywhere</h2>
-                        <span className="text-600 text-2xl">Amet consectetur adipiscing elit...</span>
+                        <h2 className="text-900 font-normal mb-2">Misión y Visión</h2>
+
                     </div>
 
                     <div className="grid mt-8 pb-2 md:pb-8">
@@ -368,10 +395,11 @@ const LandingPage = () => {
                             >
                                 <i className="pi pi-fw pi-mobile text-5xl text-purple-700"></i>
                             </div>
-                            <h2 className="line-height-1 text-900 text-4xl font-normal">Congue Quisque Egestas</h2>
+                            <h2 className="line-height-1 text-900 text-4xl font-normal">Misión</h2>
                             <span className="text-700 text-2xl line-height-3 ml-0 md:ml-2" style={{ maxWidth: '650px' }}>
-                                Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Eget aliquet nibh praesent tristique magna sit amet purus gravida. Sit amet mattis vulputate enim nulla aliquet.
-                            </span>
+                                Somos un restaurante familiar de comidas rápidas, antojitos colombianos y café,
+                                creado para dar a conocer estas delicias a cualquiera, queremos cada día mejorar
+                                y mantener nuestra calidad y tradición.</span>
                         </div>
                     </div>
 
@@ -387,10 +415,11 @@ const LandingPage = () => {
                             >
                                 <i className="pi pi-fw pi-desktop text-5xl text-yellow-700"></i>
                             </div>
-                            <h2 className="line-height-1 text-900 text-4xl font-normal">Celerisque Eu Ultrices</h2>
+                            <h2 className="line-height-1 text-900 text-4xl font-normal">Visión</h2>
                             <span className="text-700 text-2xl line-height-3 mr-0 md:mr-2" style={{ maxWidth: '650px' }}>
-                                Adipiscing commodo elit at imperdiet dui. Viverra nibh cras pulvinar mattis nunc sed blandit libero. Suspendisse in est ante in. Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi.
-                            </span>
+                                Proyectarnos como empresa moderna de comidas rápidas, lideres en el mercado del oriente ecuatoriano,
+                                mantenernos en constante evolución, adaptandonos a las necesidades cambiantes
+                                del entorno para brindar el mejor servicio a nuestros colaboradores y clientes.</span>
                         </div>
 
                         <div className="flex justify-content-end flex-order-1 sm:flex-order-2 col-12 lg:col-6 bg-yellow-100 p-0" style={{ borderRadius: '8px' }}>
@@ -401,8 +430,8 @@ const LandingPage = () => {
 
                 <div id="pricing" className="py-4 px-4 lg:px-8 my-2 md:my-4">
                     <div className="text-center">
-                        <h2 className="text-900 font-normal mb-2">Algunos de sus productos</h2>
-                        <span className="text-600 text-2xl">Amet consectetur adipiscing elit...</span>
+                        <h2 className="text-900 font-normal mb-2">Algunos de nuestros productos</h2>
+                        <span className="text-600 text-2xl">¡Ven Acércate!</span>
                     </div>
 
                     <div className="grid justify-content-between mt-8 md:mt-0">
@@ -513,7 +542,7 @@ const LandingPage = () => {
                         <div className="col-12 md:col-10 lg:col-7">
                             <div className="grid text-center md:text-left">
                                 <div className="col-12 md:col-3">
-                                    <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Company</h4>
+                                    <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Enlaces</h4>
                                     <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">About Us</a>
                                     <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">News</a>
                                     <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Investor Relations</a>
@@ -522,14 +551,14 @@ const LandingPage = () => {
                                 </div>
 
                                 <div className="col-12 md:col-3 mt-4 md:mt-0">
-                                    <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Resources</h4>
+                                    <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Contacto</h4>
                                     <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Get Started</a>
                                     <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Learn</a>
                                     <a className="line-height-3 text-xl block cursor-pointer text-700">Case Studies</a>
                                 </div>
 
                                 <div className="col-12 md:col-3 mt-4 md:mt-0">
-                                    <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Community</h4>
+                                    <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Síguenos</h4>
                                     <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Discord</a>
                                     <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">
                                         Events
