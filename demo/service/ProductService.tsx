@@ -8,7 +8,7 @@ export const ProductService = {
     },
 
     getProducts() {
-        return fetch('/demo/data/products.json', { headers: { 'Cache-Control': 'no-cache' } })
+        return fetch('http://localhost:8080/api/productos/', { headers: { 'Cache-Control': 'no-cache' } })
             .then((res) => res.json())
             .then((d) => d.data as Demo.Product[]);
     },
