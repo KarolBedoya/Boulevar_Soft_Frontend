@@ -80,10 +80,10 @@ const ListDemo = () => {
 
     const dataViewHeader = (
         <div className="flex flex-column md:flex-row md:justify-content-between gap-2">
-            <Dropdown value={sortKey} options={sortOptions} optionLabel="label" placeholder="Sort By Price" onChange={onSortChange} />
+            <Dropdown value={sortKey} options={sortOptions} optionLabel="label" placeholder="Ordenar por precio" onChange={onSortChange} />
             <span className="p-input-icon-left">
                 <i className="pi pi-search" />
-                <InputText value={globalFilterValue} onChange={onFilter} placeholder="Search by Name" />
+                <InputText value={globalFilterValue} onChange={onFilter} placeholder="Buscar Nombre" />
             </span>
             <DataViewLayoutOptions layout={layout} onChange={(e) => setLayout(e.value)} />
         </div>
@@ -155,7 +155,7 @@ const ListDemo = () => {
         <div className="grid">
             <div className="col-12">
                 <div className="card">
-                    <h5>DataView</h5>
+                    <h5>Productos</h5>
                     <DataView value={filteredValue || dataViewValue} layout={layout} paginator rows={9} sortOrder={sortOrder} sortField={sortField} itemTemplate={itemTemplate} header={dataViewHeader}></DataView>
                 </div>
             </div>
