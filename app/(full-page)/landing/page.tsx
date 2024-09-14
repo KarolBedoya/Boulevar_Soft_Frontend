@@ -361,11 +361,11 @@ const LandingPage = () => {
                                 <h3 className="text-gray-900 mb-2">Productos y Servicios</h3>
                                 <span className="text-gray-600 text-2xl">Boulevar de las frutas</span>
                                 <p className="text-gray-900 sm:line-height-2 md:line-height-4 text-2xl mt-4" style={{ maxWidth: '800px' }}>
-                                    Tenemos un amplio menú que varia para todos los gustos, nuestros productos van desde comidas rápidas,
+                                    Tenemos un amplio menú que varia para todos los gustos, nuestros products van desde comidas rápidas,
                                     empanadas colombianas, pan de yuca, batidos, ensaladas de frutas, una gama de cafés fríos y calientes,
                                     desayunos, pizzas, pasteles, comida saludable y platos a la carta.
                                     Ofrecemos servicios presenciales en nuestro único local, no tenemos proyectado expandirnos,
-                                    mas bien queremos mantener la calidad y servicio, actualmente tenemos 11 empleados.
+                                    mas bien queremos mantener la calidad y servicio, actualmente tenemos 11 employees.
                                 </p>
                                 <img src="/demo/images/landing/peak-logo.svg" className="mt-4" alt="Company logo" />
                             </div>
@@ -430,7 +430,7 @@ const LandingPage = () => {
 
                 <div id="pricing" className="py-4 px-4 lg:px-8 my-2 md:my-4">
                     <div className="text-center">
-                        <h2 className="text-900 font-normal mb-2">Algunos de nuestros productos</h2>
+                        <h2 className="text-900 font-normal mb-2">Algunos de nuestros products</h2>
                         <span className="text-600 text-2xl">¡Ven Acércate!</span>
                     </div>
 

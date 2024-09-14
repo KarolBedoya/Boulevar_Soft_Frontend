@@ -127,8 +127,8 @@ declare namespace Demo {
         price: number;
         category: string;
         quantity?: number;
-        //inventoryStatus?: InventoryStatus;
-        //rating?: number;
+        inventoryStatus?: InventoryStatus;
+        rating?: number;
         //orders?: ProductOrder[];
         [key: string]: string | string[] | number;
 
@@ -136,12 +136,28 @@ declare namespace Demo {
 
     type ProductOrder = {
         id?: string;
-        productCode?: string;
+        products?: Product[];
         date?: string;
         amount?: number;
+        waiterId?: string; // ID del mesero
         quantity?: number;
         customer?: string;
         status?: Status;
+        notes?: string;
+    };
+
+    type Employee = {
+        name: string;
+        idEmployee: string;
+        lastName: string;
+        phone?: string;
+        idNumber: number;
+        salary: number;
+        email: string;
+        birthdate?: Date | string | undefined;
+        image?: string;
+        [key: string]: string | string[] | number | undefined;
+
     };
 
     type Payment = {
