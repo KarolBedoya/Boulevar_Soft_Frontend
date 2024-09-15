@@ -76,12 +76,13 @@ const CrudEmployee = () => {
     const saveEmployee = () => {
         setSubmitted(true);
 
-        if (employee.name.trim()) {
+        if (employee.name.trim() && employee.lastName.trim()) {
             let _employees = [...(employees as any)];
             let _employee = { ...employee };
             if (employee.idemployee) {
                 const index = findIndexById(employee.idEmployee);
 
+                if (index !== -1) {
                 _employees[index] = _employee;
                 toast.current?.show({
                     severity: 'success',
@@ -89,6 +90,7 @@ const CrudEmployee = () => {
                     detail: 'Product Updated',
                     life: 3000
                 });
+            }
             } else {
                 _employee.id = createIdEmployee();
                 _employee.image = 'product-placeholder.svg';
