@@ -79,7 +79,7 @@ const CrudEmployee = () => {
         if (employee.name.trim() && employee.lastName.trim()) {
             let _employees = [...(employees as any)];
             let _employee = { ...employee };
-            if (employee.idemployee) {
+            if (employee.idEmployee) {
                 const index = findIndexById(employee.idEmployee);
 
                 if (index !== -1) {
@@ -87,7 +87,7 @@ const CrudEmployee = () => {
                 toast.current?.show({
                     severity: 'success',
                     summary: 'Successful',
-                    detail: 'Product Updated',
+                    detail: 'Empleado Actualizado con Exito',
                     life: 3000
                 });
             }
@@ -98,7 +98,7 @@ const CrudEmployee = () => {
                 toast.current?.show({
                     severity: 'success',
                     summary: 'Successful',
-                    detail: 'Product Created',
+                    detail: 'Empleado Creado con Éxito',
                     life: 3000
                 });
             }
