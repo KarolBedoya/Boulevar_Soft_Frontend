@@ -230,7 +230,7 @@ const CrudEmployee = () => {
         return (
             <>
                 <span className="p-column-title">Imagen</span>
-                <img src={`/demo/images/product/${rowData.image}`} alt={rowData.image} className="shadow-2" width="100" />
+                <img src={`/demo/images/employee/${rowData.image}`} alt={rowData.image} className="shadow-2" width="100" />
             </>
         );
     };
@@ -353,20 +353,24 @@ const CrudEmployee = () => {
                         responsiveLayout="scroll"
                     >
                         <Column selectionMode="multiple" headerStyle={{ width: '4rem' }}></Column>
-                        <Column field="idemployee" header="Codigo Empleado" body={idBodyTemplate}></Column>
+                        <Column field="idEmployee" header="Codigo Empleado" body={idBodyTemplate}></Column>
                         <Column field="name" header="Nombres" body={nameBodyTemplate}></Column>
-                        <Column field="lastname" header="Apellidos" body={lastBodyTemplate}></Column>
+                        <Column field="lastName" header="Apellidos" body={lastBodyTemplate}></Column>
                         <Column field="salary" header="Salario" body={salaryBodyTemplate}></Column>
-                        <Column field="idnumber" header="Cedula" body={identificationBodyTemplate}></Column>
+                        <Column field="idNumber" header="Cedula" body={identificationBodyTemplate}></Column>
                         <Column field="phone" header="Celular" body={phoneBodyTemplate}></Column>
                         <Column field="birthdate" header="Fecha de nacimiento" body={birthdateBodyTemplate}></Column>
                         <Column field="email" header="Correo" body={emailBodyTemplate}></Column>
-                        <Column header="Image" body={imageBodyTemplate}></Column>
+                        <Column field="image" header="Image" body={imageBodyTemplate}></Column>
                         <Column body={actionBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
                     </DataTable>
 
                     <Dialog visible={employeesDialog} style={{ width: '450px' }} header="Información del empleado" modal className="p-fluid" footer={employeeDialogFooter} onHide={hideDialog}>
-                        {employee.image && <img src={`/demo/images/product/${employee.image}`} alt={employee.image} width="150" className="mt-0 mx-auto mb-5 block shadow-2" />}
+
+                        <div className="field">
+                        <label htmlFor='imagen'>Imagen</label>
+                            {employee.image && <img src={`/demo/images/employee/${employee.image}`} alt={employee.image} width="150" className="mt-0 mx-auto mb-5 block shadow-2" />}
+                        </div>
                         <div className="field">
                             <label htmlFor="name">Nombres</label>
                             <InputText
@@ -381,25 +385,30 @@ const CrudEmployee = () => {
                             />
                             {submitted && !employee.name && <small className="p-invalid">El nombre es requerido.</small>}
                         </div>
+
                         <div className="field">
-                            <label htmlFor="lastname">Apellidos</label>
+                            <label htmlFor="lastName">Apellidos</label>
                             <InputText
-                                id="lastname"
+                                id="lastName"
                                 value={employee.lastName}
-                                onChange={(e) => onInputChange(e, 'lastname')}
+                                onChange={(e) => onInputChange(e, 'lastName')}
                                 required
                                 autoFocus
+                                className={classNames({
+                                    'p-invalid': submitted && !employee.lastName
+                                })}
                             />
+                            {submitted && !employee.lastName && <small className="p-invalid">El apellido es requerido.</small>}
                         </div>
 
                         <div className="formgrid grid">
                             <div className="field col-6">
                                 <label htmlFor="salary">Salario</label>
-                                <InputNumber id="salary" value={employee.salary} onValueChange={(e) => onInputNumberChange(e, 'price')} mode="currency" currency="USD" locale="en-US" />
+                                <InputNumber id="salary" value={employee.salary} onValueChange={(e) => onInputNumberChange(e, 'salary')} mode="currency" currency="USD" locale="en-US" />
                             </div>
                             <div className="field col-6">
-                                <label htmlFor="idnumber">Cedula</label>
-                                <InputNumber id="idnumber" value={employee.idNumber} onValueChange={(e) => onInputNumberChange(e, 'idnumber')} />
+                                <label htmlFor="idNumber">Cedula</label>
+                                <InputNumber id="idNumber" value={employee.idNumber} onValueChange={(e) => onInputNumberChange(e, 'idNumber')} />
                             </div>
                             <div className="field col-6">
                                 <label htmlFor="phone">Celular</label>
@@ -407,7 +416,7 @@ const CrudEmployee = () => {
                             </div>
                             <div className="field col-6">
                                 <label htmlFor="email">Correo</label>
-                                <InputText id="phone" value={employee.email} onChange={(e) => onInputChange(e, 'email')} />
+                                <InputText id="email" value={employee.email} onChange={(e) => onInputChange(e, 'email')} />
                             </div>
                             <div className="field col-6">
                                 <label htmlFor="birthdate">Fecha de nacimiento</label>
@@ -431,7 +440,7 @@ const CrudEmployee = () => {
                     <Dialog visible={deleteEmployeesDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteEmployeesDialogFooter} onHide={hideDeleteEmployeesDialog}>
                         <div className="flex align-items-center justify-content-center">
                             <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
-                            {employee && <span>Esta seguro de eliminar estos productos?</span>}
+                            {employee && <span>Esta seguro de eliminar este empleado?</span>}
                         </div>
                     </Dialog>
                 </div>
