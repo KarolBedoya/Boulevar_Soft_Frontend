@@ -148,7 +148,7 @@ declare namespace Demo {
 
     type Employee = {
         name: string;
-        idEmployee: string;
+        idEmployee: number;
         lastName: string;
         phone?: string;
         idNumber: number;

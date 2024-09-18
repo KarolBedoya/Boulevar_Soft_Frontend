@@ -1,6 +1,7 @@
 //Manejo de empleados
 /* eslint-disable @next/next/no-img-element */
 'use client';
+import axios from 'axios';
 import { Button } from 'primereact/button';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
@@ -22,7 +23,7 @@ import { Demo } from '@/types';
 const CrudEmployee = () => {
     let emptyEmployee: Demo.Employee = {
         name: '',
-        idEmployee: '',
+        idEmployee: 0,
         lastName: '',
         phone: '',
         idNumber: 0,
@@ -79,40 +80,53 @@ const CrudEmployee = () => {
         if (employee.name.trim() && employee.lastName.trim()) {
             let _employees = [...(employees as any)];
             let _employee = { ...employee };
-            if (employee.idEmployee) {
-                const index = findIndexById(employee.idEmployee);
 
-                if (index !== -1) {
-                _employees[index] = _employee;
-                toast.current?.show({
-                    severity: 'success',
-                    summary: 'Successful',
-                    detail: 'Empleado Actualizado con Exito',
-                    life: 3000
-                });
-            }
-            } else {
-                _employee.id = createIdEmployee();
-                _employee.image = 'product-placeholder.svg';
-                _employees.push(_employee);
-                toast.current?.show({
-                    severity: 'success',
-                    summary: 'Successful',
-                    detail: 'Empleado Creado con Éxito',
-                    life: 3000
-                });
-            }
+            axios
+                .post('http://localhost:8080/api/employees/save', _employee, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then((response) => {
+                    if (employee.idEmployee) {
+                            toast.current?.show({
+                                severity: 'success',
+                                summary: 'Successful',
+                                detail: 'Empleado Actualizado con Éxito',
+                                life: 3000,
+                            });
 
-            setEmployees(_employees as any);
-            setEmployeeDialog(false);
-            setEmployee(emptyEmployee);
+                    } else {
+                        _employee.image = 'product-placeholder.svg';
+                        _employees.push(_employee);
+                        toast.current?.show({
+                            severity: 'success',
+                            summary: 'Successful',
+                            detail: 'Empleado Creado con Éxito',
+                            life: 3000,
+                        });
+                    }
+
+                    setEmployees(_employees as any);
+                    setEmployeeDialog(false);
+                    setEmployee(emptyEmployee);
+                })
+                .catch((error) => {
+                    console.error("Error al guardar el empleado:", error);
+                    toast.current?.show({
+                        severity: 'error',
+                        summary: 'Error',
+                        detail: 'Ocurrió un error al guardar el empleado',
+                        life: 3000,
+                    });
+                });
         }
     };
 
     const editEmployee = (employee: Demo.Employee) => {
         setEmployee({ ...employee });
         setEmployeeDialog(true);
-    };
+    };;
 
     const confirmDeleteEmployee = (employee: Demo.Employee) => {
         setEmployee(employee);
@@ -120,38 +134,30 @@ const CrudEmployee = () => {
     };
 
     const deleteEmployee = () => {
-        let _employees = (employees as any)?.filter((val: any) => val.id !== employee.idemployee);
-        setEmployees(_employees);
-        setDeleteEmployeeDialog(false);
-        setEmployee(emptyEmployee);
-        toast.current?.show({
-            severity: 'success',
-            summary: 'Successful',
-            detail: 'Product Deleted',
-            life: 3000
-        });
+        let _employees = (employees as any)?.filter((val: any) => val.id !== employee.idEmployee);
+
+        axios
+            .delete(`http://localhost:8080/api/employees/delete/${employee.idEmployee}`, {
+                headers: {
+                    'Content-Type': 'application/json', // Usa el tipo de contenido correcto
+                },
+            })
+            .then(() => {
+                setEmployees(_employees);
+                setDeleteEmployeeDialog(false);
+                setEmployee(emptyEmployee);
+                toast.current?.show({
+                    severity: 'success',
+                    summary: 'Successful',
+                    detail: 'Empleado eliminado',
+                    life: 3000
+                });
+            })
+            .catch((error) => {
+                console.error('There was an error deleting the employee:', error);
+            });
     };
 
-    const findIndexById = (idemployee: string) => {
-        let index = -1;
-        for (let i = 0; i < (employees as any)?.length; i++) {
-            if ((employees as any)[i].idemployee === idemployee) {
-                index = i;
-                break;
-            }
-        }
-
-        return index;
-    };
-
-    const createIdEmployee = () => {
-        let id = '';
-        let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for (let i = 0; i < 5; i++) {
-            id += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return id;
-    };
 
     const exportCSV = () => {
         dt.current?.exportCSV();
