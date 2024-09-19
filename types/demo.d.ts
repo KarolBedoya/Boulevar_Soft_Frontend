@@ -150,7 +150,7 @@ declare namespace Demo {
         name: string;
         idEmployee: number;
         lastName: string;
-        phone?: string;
+        phone?: number;
         idNumber: number;
         salary: number;
         email: string;

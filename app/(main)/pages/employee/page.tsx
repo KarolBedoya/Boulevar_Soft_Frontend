@@ -25,7 +25,7 @@ const CrudEmployee = () => {
         name: '',
         idEmployee: 0,
         lastName: '',
-        phone: '',
+        phone: 0,
         idNumber: 0,
         salary: 0,
         email: '',
@@ -420,14 +420,14 @@ const CrudEmployee = () => {
                             </div>
                             <div className="field col-6">
                                 <label htmlFor="phone">Celular</label>
-                                <InputText id="phone" value={employee.phone} onChange={(e) => onInputChange(e, 'phone')} />
+                                <InputNumber id="phone" value={employee.phone} onValueChange={(e) => onInputNumberChange(e, 'phone')} />
                             </div>
                             <div className="field col-6">
                                 <label htmlFor="email">Correo</label>
                                 <InputText id="email" value={employee.email} onChange={(e) => onInputChange(e, 'email')} />
                             </div>
                             <div className="field col-6">
-                                <label htmlFor="birthdate">Fecha de nacimiento</label>
+                                <label htmlFor="birthdate">Fecha de nacimiento (AAAA-MM-DD)</label>
                                 <InputText id="birthdate" value={employee.birthdate ? employee.birthdate.toString(): ''} onChange={(e) => onInputChange(e, 'birthdate')} />
                             </div>
 
