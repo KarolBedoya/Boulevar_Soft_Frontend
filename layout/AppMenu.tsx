@@ -14,7 +14,8 @@ const AppMenu = () => {
         {
             label: 'Home',
             items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
-                    {label: 'Empleados', icon: ' pi pi-users', to: '/pages/employee/'}
+                    {label: 'Empleados', icon: ' pi pi-users', to: '/pages/employee/'},
+                    {label: 'Productos', icon: ' pi pi-users', to: '/pages/product/'}
             ]
         },
         {
