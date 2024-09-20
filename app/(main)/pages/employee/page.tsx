@@ -361,7 +361,7 @@ const CrudEmployee = () => {
                         responsiveLayout="scroll"
                     >
                         <Column selectionMode="multiple" headerStyle={{ width: '4rem' }}></Column>
-                        <Column field="idEmployee" header="Codigo Empleado" body={idBodyTemplate}></Column>
+                        {/* <Column field="idEmployee" header="Codigo Empleado" body={idBodyTemplate}></Column> */}
                         <Column field="name" header="Nombres" body={nameBodyTemplate}></Column>
                         <Column field="lastName" header="Apellidos" body={lastBodyTemplate}></Column>
                         <Column field="salary" header="Salario" body={salaryBodyTemplate}></Column>
@@ -401,7 +401,6 @@ const CrudEmployee = () => {
                                 value={employee.lastName}
                                 onChange={(e) => onInputChange(e, 'lastName')}
                                 required
-                                autoFocus
                                 className={classNames({
                                     'p-invalid': submitted && !employee.lastName
                                 })}
