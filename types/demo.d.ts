@@ -119,7 +119,7 @@ declare namespace Demo {
 
     //ProductService
     type Product = {
-        idProduct?: string;
+        idProduct?: number;
         //code?: string;
         name: string;
         description: string;
