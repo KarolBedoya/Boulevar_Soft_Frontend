@@ -126,6 +126,7 @@ declare namespace Demo {
         image: string;
         price: number;
         category: string;
+        
         quantity?: number;
         inventoryStatus?: InventoryStatus;
         rating?: number;
