@@ -13,26 +13,26 @@ const MessagesDemo = () => {
     const message = useRef<Messages>(null);
 
     const addSuccessMessage = () => {
-        message.current?.show({ severity: 'success', content: 'Message Detail' });
+        message.current?.show({ severity: 'success', content: 'Detalle del mensaje' });
     };
 
     const addInfoMessage = () => {
-        message.current?.show({ severity: 'info', content: 'Message Detail' });
+        message.current?.show({ severity: 'info', content: 'Información del evento' });
     };
 
     const addWarnMessage = () => {
-        message.current?.show({ severity: 'warn', content: 'Message Detail' });
+        message.current?.show({ severity: 'warn', content: 'Advertencia' });
     };
 
     const addErrorMessage = () => {
-        message.current?.show({ severity: 'error', content: 'Message Detail' });
+        message.current?.show({ severity: 'error', content: 'Error' });
     };
 
     const showSuccess = () => {
         toast.current?.show({
             severity: 'success',
-            summary: 'Success Message',
-            detail: 'Message Detail',
+            summary: 'Completado con éxito',
+            detail: 'Contenido del mensaje',
             life: 3000
         });
     };
@@ -40,8 +40,8 @@ const MessagesDemo = () => {
     const showInfo = () => {
         toast.current?.show({
             severity: 'info',
-            summary: 'Info Message',
-            detail: 'Message Detail',
+            summary: 'Mensaje de información',
+            detail: 'Contenido del mensaje',
             life: 3000
         });
     };
@@ -49,8 +49,8 @@ const MessagesDemo = () => {
     const showWarn = () => {
         toast.current?.show({
             severity: 'warn',
-            summary: 'Warn Message',
-            detail: 'Message Detail',
+            summary: 'Mensaje de advertencia',
+            detail: 'Contenido del mensaje',
             life: 3000
         });
     };
@@ -58,8 +58,8 @@ const MessagesDemo = () => {
     const showError = () => {
         toast.current?.show({
             severity: 'error',
-            summary: 'Error Message',
-            detail: 'Message Detail',
+            summary: 'Mensaje de error',
+            detail: 'Contenido del mensaje',
             life: 3000
         });
     };

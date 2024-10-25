@@ -12,10 +12,20 @@ const AppMenu = () => {
 
     const model: AppMenuItem[] = [
         {
-            label: 'Home',
-            items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
-                    {label: 'Empleados', icon: ' pi pi-users', to: '/pages/employee/'},
-                    {label: 'Productos', icon: ' pi pi-users', to: '/pages/product/'}
+            label: 'Inicio',
+            items: [{ label: 'General', icon: 'pi pi-fw pi-home', to: '/' },
+                    { label: 'Empleados', icon: ' pi pi-users', to: '/pages/employee/'},
+                    { label: 'Productos', icon: 'pi pi-shopping-bag', to: '/pages/product/'},
+                    { label: 'Materia prima', icon: 'pi pi-truck', to: '/pages/product/'},
+                    { label: 'Ordenes', icon: 'pi pi-file-edit', to: '/pages/orders/'},
+                    { label: 'Ventas', icon: 'pi pi-chart-line', to: '/pages/product/'},
+                    { label: 'Gastos', icon: 'pi pi-money-bill', to: '/pages/product/'},
+                    { label: 'Nómina', icon: 'pi pi-id-card', to: '/pages/product/'},
+                    { label: 'Clientes', icon: 'pi pi-users', to: '/pages/product/'},
+                    { label: 'Proveedores', icon: 'pi pi-user', to: '/pages/product/'},
+                    { label: 'Documentos', icon: 'pi pi-file-o', to: '/pages/product/'},
+                    { label: 'Cronograma', icon: 'pi pi-calendar', to: '/pages/product/'},
+                    { label: 'Perdidas', icon: 'pi pi-trash', to: '/pages/product/'},
             ]
         },
         {
