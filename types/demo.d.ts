@@ -126,7 +126,7 @@ declare namespace Demo {
         image: string;
         price: number;
         category: string;
-        
+
         quantity?: number;
         inventoryStatus?: InventoryStatus;
         rating?: number;
@@ -146,6 +146,14 @@ declare namespace Demo {
         status?: Status;
         notes?: string;
     };
+
+    type RawMaterial = {
+        idMateriaPrima:number;
+        name: string;
+        stock: number;
+        unitOfMeasurement: string;
+        unitPrice: number;
+    }
 
     type Employee = {
         name: string;
