@@ -19,6 +19,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { EmployeeService } from '@/demo/service/EmployeeService';
 import { Demo } from '@/types';
 
+
 /* @todo Used 'as any' for types here. Will fix in next version due to onSelectionChange event type issue. */
 const CrudEmployee = () => {
     let emptyEmployee: Demo.Employee = {
@@ -234,6 +235,8 @@ const CrudEmployee = () => {
         );
     };
 
+
+
     const imageBodyTemplate = (rowData: Demo.Employee) => {
         return (
             <>
@@ -378,6 +381,10 @@ const CrudEmployee = () => {
                         <div className="field">
                         <label htmlFor='imagen'>Imagen</label>
                             {employee.image && <img src={`/demo/images/employee/${employee.image}`} alt={employee.image} width="150" className="mt-0 mx-auto mb-5 block shadow-2" />}
+                        <div className='formgrid grid'>
+                            <FileUpload mode="basic" accept="image/*" maxFileSize={1000000} chooseLabel="Subir imagen" className="mr-2 inline-block" />
+                        </div>
+
                         </div>
                         <div className="field">
                             <label htmlFor="name">Nombres</label>
