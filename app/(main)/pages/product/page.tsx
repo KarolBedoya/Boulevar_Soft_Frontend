@@ -110,11 +110,11 @@ const CrudProduct = () => {
                     setProduct(emptyProduct);
                 })
                 .catch((error) => {
-                    console.error("Error al guardar el empleado:", error);
+                    console.error("Error al guardar el producto:", error);
                     toast.current?.show({
                         severity: 'error',
                         summary: 'Error',
-                        detail: 'Ocurrió un error al guardar el empleado',
+                        detail: 'Ocurrió un error al guardar el producto',
                         life: 3000,
                     });
                 });
@@ -393,7 +393,7 @@ const CrudProduct = () => {
                             </div>
                             <div className="field col-6">
                                 <label htmlFor="category">Categoria</label>
-                                <InputText id="email" value={product.category} onChange={(e) => onInputChange(e, 'category')} />
+                                <InputText id="category" value={product.category} onChange={(e) => onInputChange(e, 'category')} />
                             </div>
 
                         </div>

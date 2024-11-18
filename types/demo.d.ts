@@ -148,11 +148,12 @@ declare namespace Demo {
     };
 
     type RawMaterial = {
-        idMateriaPrima:number;
+        idRawMaterial:number;
         name: string;
         stock: number;
         unitOfMeasurement: string;
         unitPrice: number;
+        [key: string]: string | number;
     }
 
     type Employee = {

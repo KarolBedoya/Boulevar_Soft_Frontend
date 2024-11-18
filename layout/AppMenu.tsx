@@ -16,7 +16,7 @@ const AppMenu = () => {
             items: [{ label: 'General', icon: 'pi pi-fw pi-home', to: '/' },
                     { label: 'Empleados', icon: ' pi pi-users', to: '/pages/employee/'},
                     { label: 'Productos', icon: 'pi pi-shopping-bag', to: '/pages/product/'},
-                    { label: 'Materia prima', icon: 'pi pi-truck', to: '/pages/product/'},
+                    { label: 'Materia prima', icon: 'pi pi-truck', to: '/pages/rawMaterial/'},
                     { label: 'Ordenes', icon: 'pi pi-file-edit', to: '/pages/orders/'},
                     { label: 'Ventas', icon: 'pi pi-chart-line', to: '/pages/product/'},
                     { label: 'Gastos', icon: 'pi pi-money-bill', to: '/pages/product/'},
