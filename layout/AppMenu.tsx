@@ -15,6 +15,12 @@ const AppMenu = () => {
             label: 'Inicio',
             items: [
                     { label: 'General', icon: 'pi pi-fw pi-home', to: '/' },
+                    { label: 'Acerca de nosotros', icon: 'pi pi-fw pi-globe', to: '/landing' },
+            ]
+        },
+        {
+            label: 'Gestión',
+            items: [
                     { label: 'Empleados', icon: ' pi pi-users', to: '/pages/employee/'},
                     { label: 'Productos', icon: 'pi pi-shopping-bag', to: '/pages/product/'},
                     { label: 'Materia prima', icon: 'pi pi-truck', to: '/pages/rawMaterial/'},
@@ -29,6 +35,7 @@ const AppMenu = () => {
                     { label: 'Perdidas', icon: 'pi pi-trash', to: '/pages/product/'},
             ]
         },
+
         {
             label: 'UI Components',
             items: [
@@ -69,11 +76,7 @@ const AppMenu = () => {
             icon: 'pi pi-fw pi-briefcase',
             to: '/pages',
             items: [
-                {
-                    label: 'Landing',
-                    icon: 'pi pi-fw pi-globe',
-                    to: '/landing'
-                },
+
                 {
                     label: 'Auth',
                     icon: 'pi pi-fw pi-user',
