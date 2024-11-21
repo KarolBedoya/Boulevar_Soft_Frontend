@@ -8,8 +8,8 @@ const AppFooter = () => {
 
     return (
         <div className="layout-footer">
-            <img src={`/layout/images/logo-${layoutConfig.colorScheme === 'light' ? 'dark' : 'white'}.svg`} alt="Logo" height="20" className="mr-2" />
-            by
+            <img src={`/layout/images/icono.png`} alt="Logo" height="20" className="mr-2" />
+
             <span className="font-medium ml-2">Boulevar Soft</span>
         </div>
     );
