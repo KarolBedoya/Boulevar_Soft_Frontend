@@ -144,6 +144,10 @@ const CrudEmployee = () => {
             });
     };
 
+    const exportCSV = () => {
+        dt.current?.exportCSV();
+    };
+
     const handleFileUpload = async (event: { files: File[] }) => {
         const file = event.files[0];
         const formData = new FormData();
@@ -180,11 +184,12 @@ const CrudEmployee = () => {
         );
     };
 
+
     const rightToolbarTemplate = () => {
         return (
             <React.Fragment>
-                <FileUpload mode="basic" accept="image/*" maxFileSize={1000000} chooseLabel="Import" className="mr-2 inline-block" />
 
+                <Button label="Export" icon="pi pi-upload" severity="help" onClick={exportCSV} />
             </React.Fragment>
         );
     };
@@ -301,7 +306,7 @@ const CrudEmployee = () => {
             <div className="col-12">
                 <div className="card">
                     <Toast ref={toast} />
-
+                    <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
                     <DataTable
                         ref={dt}
                         value={employees}
