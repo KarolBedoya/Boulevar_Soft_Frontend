@@ -64,17 +64,17 @@ const AppMenu = () => {
         },
 
         {
-            label: 'Pages',
+            label: 'Paginas',
             icon: 'pi pi-fw pi-briefcase',
             to: '/pages',
             items: [
 
                 {
-                    label: 'Auth',
+                    label: 'Autenticación',
                     icon: 'pi pi-fw pi-user',
                     items: [
                         {
-                            label: 'Login',
+                            label: 'Iniciar Sesión',
                             icon: 'pi pi-fw pi-sign-in',
                             to: '/auth/login'
                         },
@@ -84,7 +84,7 @@ const AppMenu = () => {
                             to: '/auth/error'
                         },
                         {
-                            label: 'Access Denied',
+                            label: 'Acceso Denegado',
                             icon: 'pi pi-fw pi-lock',
                             to: '/auth/access'
                         }
@@ -110,7 +110,7 @@ const AppMenu = () => {
         },
 
         {
-            label: 'Get Started',
+            label: 'Información',
             items: [
                 {
                     label: 'Documentacion plantilla',
