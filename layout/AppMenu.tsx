@@ -92,11 +92,6 @@ const AppMenu = () => {
                 },
 
                 {
-                    label: 'Timeline',
-                    icon: 'pi pi-fw pi-calendar',
-                    to: '/pages/timeline'
-                },
-                {
                     label: 'Not Found',
                     icon: 'pi pi-fw pi-exclamation-circle',
                     to: '/pages/notfound'

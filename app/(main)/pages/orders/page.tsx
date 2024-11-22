@@ -19,7 +19,8 @@ const orders = () => {
             <Splitter style={{ height: '300px' }}>
                 <SplitterPanel size={30} minSize={10}>
                     <div className="mt-1 ml-1 h-full flex align-items-start justify-content-start">
-
+                    <div className="h-full flex align-items-center justify-content-center">Panel 1
+                    </div>
 
                     </div>
                 </SplitterPanel>
