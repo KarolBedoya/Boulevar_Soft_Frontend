@@ -9,9 +9,6 @@ import { Dialog } from 'primereact/dialog';
 import { FileUpload } from 'primereact/fileupload';
 import { InputNumber, InputNumberValueChangeEvent } from 'primereact/inputnumber';
 import { InputText } from 'primereact/inputtext';
-import { InputTextarea } from 'primereact/inputtextarea';
-import { RadioButton, RadioButtonChangeEvent } from 'primereact/radiobutton';
-import { Rating } from 'primereact/rating';
 import { Toast } from 'primereact/toast';
 import { Toolbar } from 'primereact/toolbar';
 import { classNames } from 'primereact/utils';
@@ -33,9 +30,7 @@ const CrudRawMaterial = () => {
     const [rawMaterials, setRawMaterialsAll] = useState(null);//Estado para almacenar las materias primas obtenidas del backend
     const [rawMaterialsDialog, setRawMaterialDialog] = useState(false);//Controlar la visibilidad del diálogo de creación/edición de materia prima
     const [deleteRawMaterialDialog, setDeleteRawMaterialDialog] = useState(false);
-    const [deleteRawMaterialsDialog, setDeleteRawMaterialsDialog] = useState(false);
     const [rawMaterial, setRawMaterial] = useState<Demo.RawMaterial>(emptyRawMaterial);
-    const [selectedRawMaterials, setSelectedRawMaterials] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const [globalFilter, setGlobalFilter] = useState('');
     const toast = useRef<Toast>(null);
@@ -46,12 +41,6 @@ const CrudRawMaterial = () => {
     }, []);
 
 
-    const formatCurrency = (value: number) => {
-        return value.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD'
-        });
-    };
 
      //función para abrir el formulario de creación de una nueva materia prima
     const openNew = () => {
@@ -71,9 +60,6 @@ const CrudRawMaterial = () => {
         setDeleteRawMaterialDialog(false);
     };
 
-    const hideDeleteRawMaterialsDialog = () => {
-        setDeleteRawMaterialsDialog(false);
-    };
 
     //Guardar o actualizar una materia prima
     const saveRawMaterial = () => {
@@ -166,22 +152,6 @@ const CrudRawMaterial = () => {
         dt.current?.exportCSV();
     };
 
-    const confirmDeleteSelected = () => {
-        setDeleteRawMaterialsDialog(true);
-    };
-
-    const deleteSelectedRawMaterials = () => {
-        let _rawMaterials = (rawMaterials as any)?.filter((val: any) => !(selectedRawMaterials as any)?.includes(val));
-        setRawMaterialsAll(_rawMaterials);
-        setDeleteRawMaterialsDialog(false);
-        setSelectedRawMaterials(null);
-        toast.current?.show({
-            severity: 'success',
-            summary: 'Successful',
-            detail: 'Materias Primas eliminadas',
-            life: 3000
-        });
-    };
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, name: string) => {
         const val = (e.target && e.target.value) || '';
@@ -204,7 +174,6 @@ const CrudRawMaterial = () => {
             <React.Fragment>
                 <div className="my-2">
                     <Button label="New" icon="pi pi-plus" severity="success" className=" mr-2" onClick={openNew} />
-                    <Button label="Delete" icon="pi pi-trash" severity="danger" onClick={confirmDeleteSelected} disabled={!selectedRawMaterials || !(selectedRawMaterials as any).length} />
                 </div>
             </React.Fragment>
         );
@@ -299,12 +268,6 @@ const CrudRawMaterial = () => {
             <Button label="Yes" icon="pi pi-check" text onClick={deleteRawMaterial} />
         </>
     );
-    const deleteRawMaterialsDialogFooter = (
-        <>
-            <Button label="No" icon="pi pi-times" text onClick={hideDeleteRawMaterialsDialog} />
-            <Button label="Yes" icon="pi pi-check" text onClick={deleteSelectedRawMaterials} />
-        </>
-    );
 
     return (
         <div className="grid crud-demo">
@@ -316,8 +279,6 @@ const CrudRawMaterial = () => {
                     <DataTable
                         ref={dt}
                         value={rawMaterials}
-                        selection={selectedRawMaterials}
-                        onSelectionChange={(e) => setSelectedRawMaterials(e.value as any)}
                         dataKey="idRawMaterial"
                         paginator
                         rows={10}
@@ -331,7 +292,7 @@ const CrudRawMaterial = () => {
                         scrollable
                         scrollHeight="400px"
                     >
-                        <Column selectionMode="multiple" headerStyle={{ width: '4rem' }}></Column>
+                        <Column headerStyle={{ width: '4rem' }}></Column>
                         {/* <Column field="idEmployee" header="Codigo Empleado" body={idBodyTemplate}></Column> */}
                         <Column field="name" header="Materia Prima" body={rawMaterialBodyTemplate}></Column>
                         <Column field="stock" header="Stock" body={stockBodyTemplate}></Column>
@@ -391,12 +352,6 @@ const CrudRawMaterial = () => {
                         </div>
                     </Dialog>
 
-                    <Dialog visible={deleteRawMaterialsDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteRawMaterialsDialogFooter} onHide={hideDeleteRawMaterialsDialog}>
-                        <div className="flex align-items-center justify-content-center">
-                            <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
-                            {rawMaterial && <span>Esta seguro de eliminar esta materia prima?</span>}
-                        </div>
-                    </Dialog>
                 </div>
             </div>
         </div>
