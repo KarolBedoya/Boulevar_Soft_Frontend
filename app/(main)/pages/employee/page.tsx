@@ -9,9 +9,6 @@ import { Dialog } from 'primereact/dialog';
 import { FileUpload } from 'primereact/fileupload';
 import { InputNumber, InputNumberValueChangeEvent } from 'primereact/inputnumber';
 import { InputText } from 'primereact/inputtext';
-import { InputTextarea } from 'primereact/inputtextarea';
-import { RadioButton, RadioButtonChangeEvent } from 'primereact/radiobutton';
-import { Rating } from 'primereact/rating';
 import { Toast } from 'primereact/toast';
 import { Toolbar } from 'primereact/toolbar';
 import { classNames } from 'primereact/utils';
@@ -37,24 +34,16 @@ const CrudEmployee = () => {
     const [employees, setEmployees] = useState(null);
     const [employeesDialog, setEmployeeDialog] = useState(false);
     const [deleteEmployeeDialog, setDeleteEmployeeDialog] = useState(false);
-    const [deleteEmployeesDialog, setDeleteEmployeesDialog] = useState(false);
     const [employee, setEmployee] = useState<Demo.Employee>(emptyEmployee);
-    const [selectedEmployees, setSelectedEmployees] = useState(null);
     const [submitted, setSubmitted] = useState(false);
     const [globalFilter, setGlobalFilter] = useState('');
     const toast = useRef<Toast>(null);
     const dt = useRef<DataTable<any>>(null);
+    const [image, setImage] = useState(employee?.image || null);
 
     useEffect(() => {
         EmployeeService.getEmployees().then((data) => setEmployees(data as any));
     }, []);
-
-    const formatCurrency = (value: number) => {
-        return value.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD'
-        });
-    };
 
     const openNew = () => {
         setEmployee(emptyEmployee);
@@ -69,10 +58,6 @@ const CrudEmployee = () => {
 
     const hideDeleteEmployeeDialog = () => {
         setDeleteEmployeeDialog(false);
-    };
-
-    const hideDeleteEmployeesDialog = () => {
-        setDeleteEmployeesDialog(false);
     };
 
     const saveEmployee = () => {
@@ -159,27 +144,15 @@ const CrudEmployee = () => {
             });
     };
 
+    const handleFileUpload = async (event: { files: File[] }) => {
+        const file = event.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
 
-    const exportCSV = () => {
-        dt.current?.exportCSV();
+        const response = await axios.post('/api/upload', formData);
+        setImage(response.data.imagePath); // Guarda la ruta de la imagen
     };
 
-    const confirmDeleteSelected = () => {
-        setDeleteEmployeesDialog(true);
-    };
-
-    const deleteSelectedEmployees = () => {
-        let _employees = (employees as any)?.filter((val: any) => !(selectedEmployees as any)?.includes(val));
-        setEmployees(_employees);
-        setDeleteEmployeesDialog(false);
-        setSelectedEmployees(null);
-        toast.current?.show({
-            severity: 'success',
-            summary: 'Successful',
-            detail: 'Products Deleted',
-            life: 3000
-        });
-    };
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, name: string) => {
         const val = (e.target && e.target.value) || '';
@@ -202,8 +175,7 @@ const CrudEmployee = () => {
             <React.Fragment>
                 <div className="my-2">
                     <Button label="New" icon="pi pi-plus" severity="success" className=" mr-2" onClick={openNew} />
-                    <Button label="Delete" icon="pi pi-trash" severity="danger" onClick={confirmDeleteSelected} disabled={!selectedEmployees || !(selectedEmployees as any).length} />
-                </div>
+                    </div>
             </React.Fragment>
         );
     };
@@ -212,21 +184,12 @@ const CrudEmployee = () => {
         return (
             <React.Fragment>
                 <FileUpload mode="basic" accept="image/*" maxFileSize={1000000} chooseLabel="Import" className="mr-2 inline-block" />
-                <Button label="Export" icon="pi pi-upload" severity="help" onClick={exportCSV} />
+
             </React.Fragment>
         );
     };
 
-    const idBodyTemplate = (rowData: Demo.Employee) => {
-        return (
-            <>
-                <span className="p-column-title">Codigo</span>
-                {rowData.idEmployee}
-            </>
-        );
-    };
-
-    const nameBodyTemplate = (rowData: Demo.Employee) => {
+        const nameBodyTemplate = (rowData: Demo.Employee) => {
         return (
             <>
                 <span className="p-column-title">Nombre</span>
@@ -332,12 +295,6 @@ const CrudEmployee = () => {
             <Button label="Yes" icon="pi pi-check" text onClick={deleteEmployee} />
         </>
     );
-    const deleteEmployeesDialogFooter = (
-        <>
-            <Button label="No" icon="pi pi-times" text onClick={hideDeleteEmployeesDialog} />
-            <Button label="Yes" icon="pi pi-check" text onClick={deleteSelectedEmployees} />
-        </>
-    );
 
     return (
         <div className="grid crud-demo">
@@ -349,8 +306,6 @@ const CrudEmployee = () => {
                     <DataTable
                         ref={dt}
                         value={employees}
-                        selection={selectedEmployees}
-                        onSelectionChange={(e) => setSelectedEmployees(e.value as any)}
                         dataKey="idEmployee"
                         paginator
                         rows={10}
@@ -363,7 +318,7 @@ const CrudEmployee = () => {
                         header={header}
                         responsiveLayout="scroll"
                     >
-                        <Column selectionMode="multiple" headerStyle={{ width: '4rem' }}></Column>
+                        <Column headerStyle={{ width: '4rem' }}></Column>
                         {/* <Column field="idEmployee" header="Codigo Empleado" body={idBodyTemplate}></Column> */}
                         <Column field="name" header="Nombres" body={nameBodyTemplate}></Column>
                         <Column field="lastName" header="Apellidos" body={lastBodyTemplate}></Column>
@@ -451,13 +406,7 @@ const CrudEmployee = () => {
                         </div>
                     </Dialog>
 
-                    <Dialog visible={deleteEmployeesDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteEmployeesDialogFooter} onHide={hideDeleteEmployeesDialog}>
-                        <div className="flex align-items-center justify-content-center">
-                            <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
-                            {employee && <span>Esta seguro de eliminar este empleado?</span>}
-                        </div>
-                    </Dialog>
-                </div>
+                    </div>
             </div>
         </div>
     );
