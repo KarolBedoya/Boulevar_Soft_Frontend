@@ -9,9 +9,6 @@ import { Dialog } from 'primereact/dialog';
 import { FileUpload } from 'primereact/fileupload';
 import { InputNumber, InputNumberValueChangeEvent } from 'primereact/inputnumber';
 import { InputText } from 'primereact/inputtext';
-import { InputTextarea } from 'primereact/inputtextarea';
-import { RadioButton, RadioButtonChangeEvent } from 'primereact/radiobutton';
-import { Rating } from 'primereact/rating';
 import { Toast } from 'primereact/toast';
 import { Toolbar } from 'primereact/toolbar';
 import { classNames } from 'primereact/utils';
@@ -34,7 +31,6 @@ const CrudProduct = () => {
     const [products, setProductsAll] = useState(null);
     const [productsDialog, setProductDialog] = useState(false);
     const [deleteProductDialog, setDeleteProductDialog] = useState(false);
-    const [deleteProductsDialog, setDeleteProductsDialog] = useState(false);
     const [product, setProduct] = useState<Demo.Product>(emptyProduct);
     const [selectedProducts, setSelectedProducts] = useState(null);
     const [submitted, setSubmitted] = useState(false);
@@ -45,13 +41,6 @@ const CrudProduct = () => {
     useEffect(() => {
         ProductService.getProductsAll().then((data) => setProductsAll(data as any));
     }, []);
-
-    const formatCurrency = (value: number) => {
-        return value.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD'
-        });
-    };
 
     const openNew = () => {
         setProduct(emptyProduct);
@@ -68,9 +57,6 @@ const CrudProduct = () => {
         setDeleteProductDialog(false);
     };
 
-    const hideDeleteProductsDialog = () => {
-        setDeleteProductsDialog(false);
-    };
 
     const saveProduct = () => {
         setSubmitted(true);
@@ -161,23 +147,6 @@ const CrudProduct = () => {
         dt.current?.exportCSV();
     };
 
-    const confirmDeleteSelected = () => {
-        setDeleteProductsDialog(true);
-    };
-
-    const deleteSelectedProducts = () => {
-        let _products = (products as any)?.filter((val: any) => !(selectedProducts as any)?.includes(val));
-        setProductsAll(_products);
-        setDeleteProductsDialog(false);
-        setSelectedProducts(null);
-        toast.current?.show({
-            severity: 'success',
-            summary: 'Successful',
-            detail: 'Products Deleted',
-            life: 3000
-        });
-    };
-
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, name: string) => {
         const val = (e.target && e.target.value) || '';
         let _product = { ...product };
@@ -199,7 +168,6 @@ const CrudProduct = () => {
             <React.Fragment>
                 <div className="my-2">
                     <Button label="New" icon="pi pi-plus" severity="success" className=" mr-2" onClick={openNew} />
-                    <Button label="Delete" icon="pi pi-trash" severity="danger" onClick={confirmDeleteSelected} disabled={!selectedProducts || !(selectedProducts as any).length} />
                 </div>
             </React.Fragment>
         );
@@ -310,12 +278,7 @@ const CrudProduct = () => {
             <Button label="Yes" icon="pi pi-check" text onClick={deleteProduct} />
         </>
     );
-    const deleteProductsDialogFooter = (
-        <>
-            <Button label="No" icon="pi pi-times" text onClick={hideDeleteProductsDialog} />
-            <Button label="Yes" icon="pi pi-check" text onClick={deleteSelectedProducts} />
-        </>
-    );
+
 
     return (
         <div className="grid crud-demo">
@@ -327,8 +290,6 @@ const CrudProduct = () => {
                     <DataTable
                         ref={dt}
                         value={products}
-                        selection={selectedProducts}
-                        onSelectionChange={(e) => setSelectedProducts(e.value as any)}
                         dataKey="idProduct"
                         paginator
                         rows={10}
@@ -341,7 +302,7 @@ const CrudProduct = () => {
                         header={header}
                         responsiveLayout="scroll"
                     >
-                        <Column selectionMode="multiple" headerStyle={{ width: '4rem' }}></Column>
+                        <Column headerStyle={{ width: '4rem' }}></Column>
                         {/* <Column field="idEmployee" header="Codigo Empleado" body={idBodyTemplate}></Column> */}
                         <Column field="name" header="Producto" body={productBodyTemplate}></Column>
                         <Column field="description" header="Descripcion" body={descriptionBodyTemplate}></Column>
@@ -410,12 +371,6 @@ const CrudProduct = () => {
                         </div>
                     </Dialog>
 
-                    <Dialog visible={deleteProductsDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteProductsDialogFooter} onHide={hideDeleteProductsDialog}>
-                        <div className="flex align-items-center justify-content-center">
-                            <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
-                            {product && <span>Esta seguro de eliminar este producto?</span>}
-                        </div>
-                    </Dialog>
                 </div>
             </div>
         </div>
