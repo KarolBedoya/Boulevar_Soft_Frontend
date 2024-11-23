@@ -2,13 +2,17 @@
 'use client';
 
 import axios from "axios";
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Splitter, SplitterPanel } from 'primereact/splitter';
 import { Button } from 'primereact/button';
+import { Demo } from '@/types';
 
 
 
-const orders = () => {
+const CrudOrders = () => {
+
+
+
 
 
 
@@ -40,6 +44,6 @@ const orders = () => {
         </div>
     </div>
     )
+ }
 
-}
-export default orders;
+export default CrudOrders;

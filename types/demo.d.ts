@@ -130,12 +130,12 @@ declare namespace Demo {
         quantity?: number;
         inventoryStatus?: InventoryStatus;
         rating?: number;
-        //orders?: ProductOrder[];
+        orders?: ProductOrder[];
         [key: string]: string | string[] | number;
 
     };
 
-    type ProductOrder = {
+    type Order = {
         id?: string;
         products?: Product[];
         date?: string;

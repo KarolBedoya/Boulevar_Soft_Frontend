@@ -6,7 +6,7 @@ export const ProductService = {
             .then((res) => res.json())
             .then((d) => d.data as Demo.Product[]);
     },
-
+//o
     getProducts() {
         return fetch('http://localhost:8080/api/products/findallproductclosedview', { headers: { 'Cache-Control': 'no-cache' } })
             .then((res) => res.json())

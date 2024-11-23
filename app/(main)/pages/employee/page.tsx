@@ -67,6 +67,8 @@ const CrudEmployee = () => {
             let _employees = [...(employees as any)];
             let _employee = { ...employee };
 
+
+
             axios
                 .post('http://localhost:8080/api/employees/save', _employee, {
                     headers: {
@@ -142,15 +144,6 @@ const CrudEmployee = () => {
             .catch((error) => {
                 console.error('There was an error deleting the employee:', error);
             });
-    };
-
-    const handleFileUpload = async (event: { files: File[] }) => {
-        const file = event.files[0];
-        const formData = new FormData();
-        formData.append('file', file);
-
-        const response = await axios.post('/api/upload', formData);
-        setImage(response.data.imagePath); // Guarda la ruta de la imagen
     };
 
 
