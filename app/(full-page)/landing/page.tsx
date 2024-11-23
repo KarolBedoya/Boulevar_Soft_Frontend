@@ -231,13 +231,14 @@ const LandingPage = () => {
                                 <div className="col-12 md:col-3 mt-4 md:mt-0">
                                     <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Contacto</h4>
                                     <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Whatsapp</a>
+                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Ecuador </a>
 
                                 </div>
 
                                 <div className="col-12 md:col-3 mt-4 md:mt-0">
                                     <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Síguenos</h4>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Facebook</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">
+                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700" href='https://www.facebook.com/BoulevarDeLasFrutas?mibextid=ZbWKwL'>Facebook</a>
+                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700" href='https://www.instagram.com/boulevardelasfrutas?igsh=MWoyMzVhNmxwMTRhNA=='>
                                         Instagram
                                         <img src="/demo/images/landing/new-badge.svg" className="ml-2" alt="badge" />
                                     </a>
