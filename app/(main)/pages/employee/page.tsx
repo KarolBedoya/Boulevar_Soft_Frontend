@@ -146,6 +146,22 @@ const CrudEmployee = () => {
             });
     };
 
+<<<<<<< HEAD
+=======
+    const exportCSV = () => {
+        dt.current?.exportCSV();
+    };
+
+    const handleFileUpload = async (event: { files: File[] }) => {
+        const file = event.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const response = await axios.post('/api/upload', formData);
+        setImage(response.data.imagePath); // Guarda la ruta de la imagen
+    };
+
+>>>>>>> dd4a4e44936d4b30d8245c75cbfc207100400ac7
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, name: string) => {
         const val = (e.target && e.target.value) || '';
@@ -173,11 +189,12 @@ const CrudEmployee = () => {
         );
     };
 
+
     const rightToolbarTemplate = () => {
         return (
             <React.Fragment>
-                <FileUpload mode="basic" accept="image/*" maxFileSize={1000000} chooseLabel="Import" className="mr-2 inline-block" />
 
+                <Button label="Export" icon="pi pi-upload" severity="help" onClick={exportCSV} />
             </React.Fragment>
         );
     };
@@ -295,7 +312,6 @@ const CrudEmployee = () => {
                 <div className="card">
                     <Toast ref={toast} />
                     <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
-
                     <DataTable
                         ref={dt}
                         value={employees}

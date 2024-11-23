@@ -49,14 +49,12 @@ const AppMenu = () => {
                 { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
                 { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
                 { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
-                { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/uikit/tree' },
                 { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/uikit/panel' },
                 { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/uikit/overlay' },
                 { label: 'Media', icon: 'pi pi-fw pi-image', to: '/uikit/media' },
                 { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu', preventExact: true },
                 { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
                 { label: 'File', icon: 'pi pi-fw pi-file', to: '/uikit/file' },
-                { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/charts' },
                 { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
                     ]
                 }
@@ -64,17 +62,17 @@ const AppMenu = () => {
         },
 
         {
-            label: 'Pages',
+            label: 'Paginas',
             icon: 'pi pi-fw pi-briefcase',
             to: '/pages',
             items: [
 
                 {
-                    label: 'Auth',
+                    label: 'Autenticación',
                     icon: 'pi pi-fw pi-user',
                     items: [
                         {
-                            label: 'Login',
+                            label: 'Iniciar Sesión',
                             icon: 'pi pi-fw pi-sign-in',
                             to: '/auth/login'
                         },
@@ -84,18 +82,13 @@ const AppMenu = () => {
                             to: '/auth/error'
                         },
                         {
-                            label: 'Access Denied',
+                            label: 'Acceso Denegado',
                             icon: 'pi pi-fw pi-lock',
                             to: '/auth/access'
                         }
                     ]
                 },
 
-                {
-                    label: 'Timeline',
-                    icon: 'pi pi-fw pi-calendar',
-                    to: '/pages/timeline'
-                },
                 {
                     label: 'Not Found',
                     icon: 'pi pi-fw pi-exclamation-circle',
@@ -110,7 +103,7 @@ const AppMenu = () => {
         },
 
         {
-            label: 'Get Started',
+            label: 'Información',
             items: [
                 {
                     label: 'Documentacion plantilla',

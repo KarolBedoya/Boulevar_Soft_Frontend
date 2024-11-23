@@ -48,7 +48,7 @@ const LandingPage = () => {
                             </li>
                             <li>
                                 <a href="#productos" onClick={toggleMenuItemClick} className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
-                                    <span>Algunos productos</span>
+                                    <span>Productos</span>
                                     <Ripple />
                                 </a>
                             </li>
@@ -149,9 +149,11 @@ const LandingPage = () => {
                                 <h3 className="text-900 text-center my-5">Artesanal Burguer</h3>
                                 <img src="/demo/images/landing/artesanal_burguer.jpg" className="w-10 h-10 mx-auto" alt="free" />
                                 <div className="my-5 text-center">
-                                    <span className="text-5xl font-bold mr-2 text-900">$7.6</span>
-                                    <span className="text-600">pesos</span>
+                                    <span className="text-5xl font-bold mr-2 text-900">$6</span>
+                                    <span className="text-600">dólares</span>
+                                    <Link href={"/pages/empty/"}>
                                     <Button label="Ver más" rounded className="block mx-auto mt-4 border-none ml-3 font-light line-height-2 bg-blue-500 text-white"></Button>
+                                    </Link>
                                 </div>
                                 <Divider className="w-full bg-surface-200"></Divider>
                                 <ul className="my-5 list-none p-0 flex text-900 flex-column">
@@ -170,8 +172,10 @@ const LandingPage = () => {
                                 <img src="/demo/images/landing/sandwich de pollo.jpg" className="w-10 h-10 mx-auto" alt="startup" />
                                 <div className="my-5 text-center">
                                     <span className="text-5xl font-bold mr-2 text-900">$1</span>
-                                    <span className="text-600">pesos</span>
-                                    <Button label="Try Free" rounded className="block mx-auto mt-4 border-none ml-3 font-light line-height-2 bg-blue-500 text-white"></Button>
+                                    <span className="text-600">dólares</span>
+                                    <Link href={"/pages/empty/"}>
+                                    <Button label="Ver más" rounded className="block mx-auto mt-4 border-none ml-3 font-light line-height-2 bg-blue-500 text-white"></Button>
+                                    </Link>
                                 </div>
                                 <Divider className="w-full bg-surface-200"></Divider>
                                 <ul className="my-5 list-none p-0 flex text-900 flex-column">
@@ -189,9 +193,11 @@ const LandingPage = () => {
                                 <h3 className="text-900 text-center my-5">Desayuno Ejecutivo</h3>
                                 <img src="/demo/images/landing/desayuno ejecutivo.jpg" className="w-10 h-10 mx-auto" alt="enterprise" />
                                 <div className="my-5 text-center">
-                                    <span className="text-5xl font-bold mr-2 text-900">$999</span>
-                                    <span className="text-600">pesos</span>
-                                    <Button label="Get a Quote" rounded className="block mx-auto mt-4 border-none ml-3 font-light line-height-2 bg-blue-500 text-white"></Button>
+                                    <span className="text-5xl font-bold mr-2 text-900">$6.75</span>
+                                    <span className="text-600">dólares</span>
+                                    <Link href={"/pages/empty/"}>
+                                    <Button label="Ver más" rounded className="block mx-auto mt-4 border-none ml-3 font-light line-height-2 bg-blue-500 text-white"></Button>
+                                    </Link>
                                 </div>
                                 <Divider className="w-full bg-surface-200"></Divider>
                                 <ul className="my-5 list-none p-0 flex text-900 flex-column">
@@ -210,7 +216,7 @@ const LandingPage = () => {
                     <div className="grid justify-content-between">
                         <div className="col-12 md:col-2" style={{ marginTop: '-1.5rem' }}>
                             <Link href="/" className="flex flex-wrap align-items-center justify-content-center md:justify-content-start md:mb-0 mb-3 cursor-pointer">
-                                <img src={`/layout/images/${layoutConfig.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}.svg`} alt="footer sections" width="50" height="50" className="mr-2" />
+                                <img src={`/layout/images/boulevar.jpg`} alt="footer sections" width="100" height="100" className="mr-2" />
                                 <span className="font-medium text-3xl text-900">Boulevar Soft</span>
                             </Link>
                         </div>
@@ -219,36 +225,30 @@ const LandingPage = () => {
                             <div className="grid text-center md:text-left">
                                 <div className="col-12 md:col-3">
                                     <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Enlaces</h4>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">About Us</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">News</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Investor Relations</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Careers</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer text-700">Media Kit</a>
+                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700" href='#home'>Inicio</a>
                                 </div>
 
                                 <div className="col-12 md:col-3 mt-4 md:mt-0">
                                     <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Contacto</h4>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Get Started</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Learn</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer text-700">Case Studies</a>
+                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Whatsapp</a>
+                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Ecuador </a>
+
                                 </div>
 
                                 <div className="col-12 md:col-3 mt-4 md:mt-0">
                                     <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Síguenos</h4>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Discord</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">
-                                        Events
+                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700" href='https://www.facebook.com/BoulevarDeLasFrutas?mibextid=ZbWKwL'>Facebook</a>
+                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700" href='https://www.instagram.com/boulevardelasfrutas?igsh=MWoyMzVhNmxwMTRhNA=='>
+                                        Instagram
                                         <img src="/demo/images/landing/new-badge.svg" className="ml-2" alt="badge" />
                                     </a>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">FAQ</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer text-700">Blog</a>
+
                                 </div>
 
                                 <div className="col-12 md:col-3 mt-4 md:mt-0">
                                     <h4 className="font-medium text-2xl line-height-3 mb-3 text-900">Legal</h4>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Brand Policy</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Privacy Policy</a>
-                                    <a className="line-height-3 text-xl block cursor-pointer text-700">Terms of Service</a>
+                                    <a className="line-height-3 text-xl block cursor-pointer mb-2 text-700">Políticas de Privacidad</a>
+                                    <a className="line-height-3 text-xl block cursor-pointer text-700">Terminos de Servicio</a>
                                 </div>
                             </div>
                         </div>
