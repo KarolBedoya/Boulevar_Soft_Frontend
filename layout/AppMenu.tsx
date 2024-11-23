@@ -55,7 +55,6 @@ const AppMenu = () => {
                 { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu', preventExact: true },
                 { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
                 { label: 'File', icon: 'pi pi-fw pi-file', to: '/uikit/file' },
-                { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/charts' },
                 { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
                     ]
                 }
