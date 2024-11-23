@@ -135,17 +135,7 @@ declare namespace Demo {
 
     };
 
-    type ProductOrder = {
-        id?: string;
-        products?: Product[];
-        date?: string;
-        amount?: number;
-        waiterId?: string; // ID del mesero
-        quantity?: number;
-        customer?: string;
-        status?: Status;
-        notes?: string;
-    };
+
 
     type RawMaterial = {
         idRawMaterial:number;
@@ -170,12 +160,6 @@ declare namespace Demo {
 
     };
 
-    type Payment = {
-        name: string;
-        amount: number;
-        paid: boolean;
-        date: string;
-    };
 
     //CustomerService
     type Customer = {
